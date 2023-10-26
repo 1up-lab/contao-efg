@@ -588,7 +588,7 @@ class Formdata extends \Frontend
 		if ($this->arrMembers === null)
 		{
 			$members = array();
-			$objMembers = \Database::getInstance()->prepare("SELECT id, CONCAT(firstname,' ',lastname) AS name,groups,login,username,locked,disable,start,stop FROM tl_member ORDER BY name ASC")
+			$objMembers = \Database::getInstance()->prepare("SELECT id, CONCAT(firstname,' ',lastname) AS name,`groups`,login,username,locked,disable,start,stop FROM tl_member ORDER BY name ASC")
 				->execute();
 			$members[] = '-';
 			if ($objMembers->numRows)
@@ -617,7 +617,7 @@ class Formdata extends \Frontend
 			$users = array();
 
 			// Get all users
-			$objUsers = \Database::getInstance()->prepare("SELECT id,username,name,locked,disable,start,stop,admin,groups,modules,inherit,fop FROM tl_user ORDER BY name ASC")
+			$objUsers = \Database::getInstance()->prepare("SELECT id,username,name,locked,disable,start,stop,admin,`groups`,modules,inherit,fop FROM tl_user ORDER BY name ASC")
 				->execute();
 			$users[] = '-';
 			if ($objUsers->numRows)
